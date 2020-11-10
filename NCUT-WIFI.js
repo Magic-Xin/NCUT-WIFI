@@ -42,67 +42,62 @@ class Im3xWidget {
 		title.textColor = new Color("#620062");
 		widget.addSpacer(7.5);
 
-		let online = this.isOnline();
-		if (online) {
-			let used_text = widget.addText("已用流量: ");
-			used_text.textColor = new Color("#000000");
-			used_text.font = Font.boldSystemFont(15);
-			used_text.lineLimit = 1;
-			widget.addSpacer(5);
-			if (data[0] >= 1024.0) {
-				data[0] /= 1024;
-				let used_data = widget.addText(Number(data[0]).toFixed(2).toString() + " GB");
-				used_data.textColor = new Color("#000000");
-				used_data.font = Font.systemFont(15);
-				used_data.lineLimit = 1;
-				used_data.centerAlignText();
-			} else {
-				let used_data = widget.addText(Number(data[0]).toFixed(2).toString() + " MB");
-				used_data.textColor = new Color("#000000");
-				used_data.font = Font.systemFont(15);
-				used_data.lineLimit = 1;
-				used_data.centerAlignText();
-			}
-			widget.addSpacer(5);
-
-			let left_text = widget.addText("剩余流量: ");
-			left_text.textColor = new Color("#000000");
-			left_text.font = Font.boldSystemFont(15);
-			left_text.lineLimit = 1;
-			widget.addSpacer(3);
-			if (data[1] >= 1024.0) {
-				data[1] /= 1024.0;
-				let left_data = widget.addText(Number(data[1]).toFixed(2).toString() + " GB");
-				left_data.textColor = new Color("#000000");
-				left_data.font = Font.systemFont(15);
-				left_data.lineLimit = 1;
-				left_data.centerAlignText();
-			} else {
-				let left_data = widget.addText(Number(data[1]).toFixed(2).toString() + " MB");
-				left_data.textColor = new Color("#000000");
-				left_data.font = Font.systemFont(15);
-				left_data.lineLimit = 1;
-				left_data.centerAlignText();
-			}
-			widget.addSpacer(5);
-
-			let date_data = widget.addText('更新于:' + this.nowDate());
-			date_data.font = Font.systemFont(10);
-			date_data.textColor = new Color("#696969");
-			date_data.centerAlignText();
-
-			let date_time = widget.addText(this.nowTime());
-			date_time.font = Font.systemFont(10);
-			date_time.textColor = new Color("#696969");
-			date_time.centerAlignText();
+		let used_text = widget.addText("已用流量: ");
+		used_text.textColor = new Color("#000000");
+		used_text.font = Font.boldSystemFont(15);
+		used_text.lineLimit = 1;
+		widget.addSpacer(5);
+		if (data[0] >= 1024.0) {
+			data[0] /= 1024;
+			let used_data = widget.addText(Number(data[0]).toFixed(2).toString() + " GB");
+			used_data.textColor = new Color("#000000");
+			used_data.font = Font.systemFont(15);
+			used_data.lineLimit = 1;
+			used_data.centerAlignText();
+		} else {
+			let used_data = widget.addText(Number(data[0]).toFixed(2).toString() + " MB");
+			used_data.textColor = new Color("#000000");
+			used_data.font = Font.systemFont(15);
+			used_data.lineLimit = 1;
+			used_data.centerAlignText();
 		}
+		widget.addSpacer(5);
+
+		let left_text = widget.addText("剩余流量: ");
+		left_text.textColor = new Color("#000000");
+		left_text.font = Font.boldSystemFont(15);
+		left_text.lineLimit = 1;
+		widget.addSpacer(3);
+		if (data[1] >= 1024.0) {
+			data[1] /= 1024.0;
+			let left_data = widget.addText(Number(data[1]).toFixed(2).toString() + " GB");
+			left_data.textColor = new Color("#000000");
+			left_data.font = Font.systemFont(15);
+			left_data.lineLimit = 1;
+			left_data.centerAlignText();
+		} else {
+			let left_data = widget.addText(Number(data[1]).toFixed(2).toString() + " MB");
+			left_data.textColor = new Color("#000000");
+			left_data.font = Font.systemFont(15);
+			left_data.lineLimit = 1;
+			left_data.centerAlignText();
+		}
+		widget.addSpacer(5);
+
+		let date_data = widget.addText('更新于:' + this.nowDate());
+		date_data.font = Font.systemFont(10);
+		date_data.textColor = new Color("#696969");
+		date_data.centerAlignText();
+
+		let date_time = widget.addText(this.nowTime());
+		date_time.font = Font.systemFont(10);
+		date_time.textColor = new Color("#696969");
+		date_time.centerAlignText();
 
 		widget.backgroundColor = new Color("#FFFFFF");
 
 		let nextRefresh = Date.now() + 10000;
-		if (online) {
-			widget.refreshAfterDate = new Date(nextRefresh);
-		}
+		widget.refreshAfterDate = new Date(nextRefresh);
 		return widget;
 	}
 
@@ -128,14 +123,6 @@ class Im3xWidget {
 		let res = await req.loadString();
 		let data = res.match(/([1-9]\d*\.\d*)|(0\.\d*[1-9])/g);
 		return data;
-	}
-
-	//判断网络情况
-	async isOnline() {
-		let wv = new WebView();
-		let url = '192.168.254.251';
-		let res = await wv.evaluateJavaScript(url);
-		return res;
 	}
 
 	//加载远程图片
