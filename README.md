@@ -30,8 +30,11 @@ Safari.open("scriptable:///open?scriptName=" + encodeURIComponent('NCUT-WIFI'));
 4. 在桌面新建小组件 (widget)，选择 **Scriptable**，尺寸选择**小**或**中**
 
 5. 在小组件弹出窗口中
+
 >**Script** 项选择 **NCUT-WIFI**
+
 >**When Interacting** 项选择 **Run Script**
+
 >**Parameter** 项中填写**学号**
 
 6. 连接 NCUT-AUTO，或连接 NCUT 并登陆
