@@ -25,7 +25,7 @@ await Promise.all(['NCUT-WIFI.js'].map(async js => {
 FILE_MGR.remove(module.filename);
 Safari.open("scriptable:///open?scriptName=" + encodeURIComponent('NCUT-WIFI'));
 ```
-3. 打开 **Scriptable** 点击右上角**加号**，或点击 [这里](scriptable://add?scriptName=Install) -> 长按粘贴 -> 点击右下角**运行箭头** -> 弹出 NCUT-WIFI 代码窗口后点击右上角 **Done**
+3. 打开 **Scriptable** 点击右上角**加号**，或点击 <a href="scriptable:///add?scriptName=install">这里</a> -> 长按粘贴 -> 点击右下角**运行箭头** -> 弹出 NCUT-WIFI 代码窗口后点击右上角 **Done**
 
 4. 在桌面新建小组件 (widget)，选择 **Scriptable**，尺寸选择**小**或**中**
 
