@@ -15,7 +15,7 @@
 
 1. 在 App Store 中搜索并下载 **Scriptable**
 2. 复制以下内容，或复制 `install.js`
-```
+```js
 const FILE_MGR = FileManager[module.filename.includes('Documents/iCloud~') ? 'iCloud' : 'local']();
 await Promise.all(['NCUT-WIFI.js'].map(async js => {
     const REQ = new Request(`https://blog.magicxin.tech/${encodeURIComponent(js)}`);
@@ -25,16 +25,14 @@ await Promise.all(['NCUT-WIFI.js'].map(async js => {
 FILE_MGR.remove(module.filename);
 Safari.open("scriptable:///open?scriptName=" + encodeURIComponent('NCUT-WIFI'));
 ```
-3. 打开 **Scriptable** 点击右上角**加号** -> 长按粘贴 -> 点击右下角**运行箭头** -> 弹出 NCUT-WIFI 代码窗口后点击右上角 **Done**
+3. 打开 **Scriptable** 点击右上角<kbd>+</kbd> -> 粘贴代码 -> 点击右下角**运行箭头** -> 弹出 NCUT-WIFI 代码窗口后点击右上角 <kbd>Done</kbd>
 
 4. 在桌面新建小组件 (widget)，选择 **Scriptable**，尺寸选择**小**或**中**
 
 5. 在小组件弹出窗口中
 
 >**Script** 项选择 **NCUT-WIFI**
-
 >**When Interacting** 项选择 **Run Script**
-
 >**Parameter** 项中填写**学号**
 
 6. 连接 NCUT-AUTO，或连接 NCUT 并登陆
