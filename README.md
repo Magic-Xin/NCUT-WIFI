@@ -7,7 +7,7 @@
 
 可以显示 NCUT 校园网剩余流量
 
-异步自动更新并判断网络情况
+异步自动更新并使用本地文件缓存，支持icloud同步更新
 
 # 使用
 
@@ -42,4 +42,6 @@ Safari.open("scriptable:///open?scriptName=" + encodeURIComponent('NCUT-WIFI'));
 
 Debug 代码自动补全
 
-```npm install @types/scriptable-ios```
+```shell
+npm install @types/scriptable-ios
+```
