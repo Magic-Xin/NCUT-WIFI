@@ -1,3 +1,6 @@
+ver 1.0.8
+- 回滚正则表达式匹配
+
 ver 1.0.7
 - 更新 url 地址
 - 更改 Request，由 String 改为 JSON
